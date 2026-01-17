@@ -1,0 +1,28 @@
+# .gitignore para Vivado / Xilinx
+*.jou
+*.log
+*.dcp
+*.bit
+*.bin
+*.hdf
+*.hwh
+*.xsa
+.Xil/
+.metadata/
+*.ip_user_files/
+*.hw/
+*.sim/
+*.runs/
+*.srcs/
+*.gen/
+*.cache/
+*.ioplanning/
+vivado_pid*.str
+vivado_pid*.zip
+
+# Ignorar proyecto completo de Vivado (porque usaremos script tcl)
+riscv_project/
+
+# Python caches
+__pycache__/
+*.ipynb_checkpoints/
