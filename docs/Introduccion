@@ -1,0 +1,89 @@
+En el ámbito del diseño de procesadores, las arquitecturas CISC (Complex Instruction Set Computing) y RISC (Reduced Instruction Set Computing) han representado dos enfoques diferentes para abordar cómo las instrucciones son procesadas por una CPU. Aunque ambas han evolucionado desde los años 70, su diseño y diferencias influyen significativamente en el rendimiento, la eficiencia energética y en la complejidad de los sistemas y aplicaciones en los que se utilizan.
+
+En el artículo de hoy, analizamos en detalle las características de cada arquitectura, su funcionamiento y los entornos en los que destacan, ofreciendo una visión clara de cómo han impactado en la tecnología actual.
+
+Arquitectura CISC
+Tal y como su nombre indica, la arquitectura CISC se caracteriza por un conjunto de instrucciones complejo, donde una sola instrucción puede realizar múltiples operaciones a nivel de hardware. Este enfoque fue diseñado en el contexto de los años 70, una época en la que las memorias tenían un coste alto y los compiladores no eran lo suficientemente avanzados para optimizar eficientemente el código. Por lo tanto, el objetivo principal de esta arquitectura era minimizar la cantidad de instrucciones necesarias en el programa, reduciendo el tamaño del código fuente y maximizando el aprovechamiento de los recursos disponibles. Algunos ejemplos de arquitecturas CISC incluyen la popular versión x86 de Intel y la x86-64 de AMD.
+
+A continuación, analizaremos en profundidad las características clave de CISC, su funcionamiento, así como también, sus ventajas, desventajas y aplicaciones.
+
+Características principales de CISC
+Conjunto de instrucciones amplio y complejo: Las instrucciones en CISC suelen ser amplias y variadas, permitiendo operaciones complejas como multiplicaciones, llamadas a funciones, manejo de bucles y manipulación de datos directamente en memoria. Estas instrucciones suelen ser de longitud variable, dependiendo de la tarea que deben realizar.
+Soporte directo para operaciones en memoria: Los procesadores CISC permiten que las operaciones aritméticas trabajen directamente con valores almacenados en memoria, en lugar de requerir que los datos se carguen previamente en registros.
+Hardware más sofisticado: La complejidad del conjunto de instrucciones requiere hardware avanzado para decodificar y ejecutar las instrucciones. Esto incluye unidades de control con microprogramación que traducen las instrucciones complejas en pasos más simples.
+Énfasis en la reducción del tamaño del código: Una de las motivaciones originales del diseño CISC es minimizar la cantidad de instrucciones en el código, optimizando así el uso de memoria.
+Funcionamiento del hardware en CISC
+El núcleo del diseño CISC radica en su unidad de control, que utiliza microprogramación para descomponer instrucciones complejas en múltiples micro-operaciones. Este enfoque permite que el procesador ejecute una gran variedad de tareas sin requerir que cada instrucción esté directamente codificada en hardware.
+
+Decodificación de instrucciones: Una instrucción compleja es analizada y descompuesta en operaciones más simples, por lo que, por ejemplo, una sola instrucción podría combinar la carga de datos desde memoria, realizar un cálculo y almacenar el resultado.
+Ejecución en varios ciclos de reloj: Dado que las instrucciones son complejas, su ejecución a menudo requiere de múltiples ciclos de reloj (la unidad básica que mide la velocidad a la que un procesador puede completar operaciones, determinada por la frecuencia del reloj de la CPU). Esto implica que las instrucciones CISC pueden ser más lentas de procesar en comparación con las instrucciones simples que se ejecutan en un solo ciclo.
+Flexibilidad y compatibilidad: El uso de microprogramación facilita la actualización y ampliación del conjunto de instrucciones, permitiendo compatibilidad hacia atrás (backward compatibility) con software más antiguo.
+Arquitectura RISC
+A diferencia del modelo CISC, RISC se centra en un conjunto de instrucciones reducido y altamente optimizado, por lo que este diseño promueve un enfoque más eficiente y rápido simplificando el hardware del procesador. Por lo tanto, la arquitectura RISC trabaja con un enfoque de diseño de procesadores que prioriza la simplicidad, la velocidad y la eficiencia, y surgió como alternativa a la complejidad de las arquitecturas CISC, con el objetivo de ejecutar instrucciones rápidas y uniformes, optimizando el rendimiento a través de la segmentación (pipelining) y la minimización de la lógica de hardware.
+
+Además, este modelo de diseño es ampliamente utilizado en sistemas embebidos, dispositivos móviles y aplicaciones de alto rendimiento donde la eficiencia energética es muy importante. Algún ejemplo de ello serían las arquitecturas ARM, que suelen ser utilizadas en dispositivos móviles y PowerPC.
+
+Características principales de RISC
+Conjunto reducido de instrucciones: Las arquitecturas RISC limitan el número de instrucciones disponibles, simplificándolas para que cada una realice una operación elemental, como un cálculo o una transferencia de datos. Las instrucciones suelen ser de longitud fija, lo que facilita su decodificación.
+Ejecución rápida y uniforme: Cada instrucción está diseñada para completarse en un solo ciclo de reloj, maximizando la velocidad de procesamiento y facilitando la predicción del rendimiento.
+Uso intensivo de registros: Las operaciones en RISC generalmente se realizan entre registros en lugar de interactuar directamente con la memoria, minimizando los accesos a memoria, que son más lentos.
+Hardware simplificado: Debido a la simplicidad del conjunto de instrucciones, el hardware puede optimizarse para operaciones más rápidas y paralelas.
+Segmentación optimizada: La arquitectura RISC está diseñada para aprovechar la segmentación (pipeline), dividiendo la ejecución de instrucciones en etapas que se pueden realizar en paralelo.
+Funcionamiento del hardware en RISC
+El diseño RISC busca maximizar el rendimiento mediante la simplicidad y la regularidad en la ejecución de instrucciones.
+
+Decodificación simple: Dado que las instrucciones son de longitud fija y uniformes, el procesador puede decodificarlas rápidamente sin necesidad de un hardware complejo.
+Ejecución en un ciclo de reloj: Cada instrucción se descompone en operaciones básicas (como lectura de registros, cálculo y escritura de resultados) que se realizan en un solo ciclo.
+Uso extensivo de pipelining: La segmentación divide el procesamiento en varias etapas (como fetch, decode, execute), permitiendo que múltiples instrucciones se procesen simultáneamente.
+Optimización por el compilador: Los compiladores son fundamentales en RISC, ya que deben traducir el código de alto nivel en instrucciones que aprovechen eficientemente los registros y minimicen los accesos a memoria.
+Comparando arquitecturas: CISC vs RISC
+CISC	RISC
+Conjunto de instrucciones	Complejo y variado (longitud variable)	Reducido y uniforme (longitud fija)
+Ciclos por instrucción	Variados (a menudo múltiples ciclos)	Generalmente uno por instrucción
+Complejidad del hardware	Alta (requiere decodificación avanzada)	Baja (diseño simplificado)
+Tamaño del código	Menor debido a instrucciones más complejas	Mayor, ya que requiere más instrucciones
+Consumo de energía	Mayor debido al hardware complejo	Menor, ideal para dispositivos móviles
+Aplicaciones típicas	Ordenadores personales o servidores	Dispositivos móviles, sistemas embebidos, IoT, etc.
+Futuro de CISC y RISC
+Con la evolución de la tecnología, la distinción entre ambas arquitecturas se ha difuminado, ya que hoy en día, procesadores CISC como los de Intel incorporan muchas características típicas de RISC, como la segmentación y ejecución fuera de orden. A su vez, los procesadores RISC han ampliado sus conjuntos de instrucciones, acercándose en funcionalidad a los CISC.
+
+La batalla entre CISC y RISC no tiene un claro ganador, ya que ambas arquitecturas están diseñadas para resolver problemas específicos en contextos distintos. Aún así, lo que queda claro es que el equilibrio entre complejidad, eficiencia y compatibilidad seguirá guiando la innovación en el diseño de procesadores.
+
+Por otro lado, las arquitecturas ARM y RISC-V están creciendo rápidamente en popularidad debido a su eficiencia energética, mientras que CISC sigue siendo la elección estándar para ordenadores de escritorio y servidores.
+
+Conclusión
+Como hemos visto a lo largo del artículo, CISC y RISC son paradigmas diferentes que abordan problemas similares pero de una manera distinta.
+
+La arquitectura CISC ha sido fundamental en la evolución de los procesadores, proporcionando una solución efectiva para reducir el tamaño del código y optimizar el uso de memoria en sistemas tradicionales. Además, su capacidad para manejar instrucciones complejas directamente en hardware la convierte en una opción ideal para entornos donde la compatibilidad hacia atrás y la ejecución de software heredado son importantes, como en ordenadores y servidores.
+
+Sin embargo, esta complejidad tiene un coste: mayor consumo de energía, hardware más caro y velocidades de ejecución potencialmente más bajas en comparación con arquitecturas más modernas como RISC, que con su enfoque en simplicidad y eficiencia, se ha convertido en la elección favorita en sectores donde el rendimiento por watt es clave. Por tanto, aunque requiere de más instrucciones para realizar tareas complejas, su diseño optimizado para segmentación y bajo consumo de energía la hace altamente efectiva en contextos modernos como dispositivos móviles, IoT y superordenadores.
+
+  https://blockandcapital.com/es/cisc-vs-risc-dos-mundos-en-la-arquitectura-de-procesadores/#:~:text=Table_title:%20Comparando%20arquitecturas:%20CISC%20vs%20RISC%20Table_content:,Dispositivos%20m%C3%B3viles%2C%20sistemas%20embebidos%2C%20IoT%2C%20etc.%20%7C
+
+
+
+
+1. La Gran División: RISC vs. CISC
+Para entender el corazón de este proyecto, primero debemos diferenciar las dos filosofías que han dominado la computación moderna:
+
+CISC (Complex Instruction Set Computer): Representado por gigantes como Intel y AMD (x86). Su filosofía es "el hardware hace el trabajo duro". Tienen instrucciones muy potentes y complejas capaces de realizar múltiples tareas (cargar memoria, operar y guardar) en una sola línea de código. Esto facilita la vida al programador de ensamblador, pero requiere circuitos muy complejos y mayor consumo energético.
+
+RISC (Reduced Instruction Set Computer): La base de ARM y RISC-V. Su filosofía es "mantenlo simple". Utiliza instrucciones pequeñas y sencillas que se ejecutan muy rápido (idealmente en un ciclo de reloj). Para tareas complejas, combina varias instrucciones simples. Esto traslada la complejidad al compilador (software), permitiendo chips más pequeños, eficientes y fríos.
+
+Analogía rápida: Si CISC es un chef experto que corta, cocina y emplata con una sola orden ("¡Prepara la cena!"), RISC es una línea de montaje donde cada persona hace una sola cosa muy rápido ("Corta", "Calienta", "Sirve").
+
+2. ¿Qué hace especial a RISC-V?
+RISC-V no es "otro procesador más", es un cambio de paradigma. A diferencia de ARM o Intel, RISC-V no es un procesador físico, es un estándar abierto (ISA).
+
+Funcionamiento Modular: RISC-V funciona como un juego de LEGO. Tienes un set base de instrucciones (Integer) y puedes añadir "extensiones" según lo necesites (M para multiplicación, F para coma flotante, C para instrucciones comprimidas). En nuestro proyecto, el núcleo CVA6 implementa un set de 64 bits con extensiones específicas para correr Linux.
+
+Sin Royalties: Cualquiera puede diseñar un chip RISC-V gratis. No hay que pagar licencias millonarias a una empresa matriz.
+
+3. Implicaciones frente a ARM e Intel
+La industria se encuentra en un punto de inflexión. Mientras que Intel domina el rendimiento bruto en PCs y servidores, y ARM domina la eficiencia en móviles:
+
+Frente a Intel (x86): RISC-V permite una eficiencia energética superior, crucial para dispositivos a batería o IoT, donde x86 no puede competir.
+
+Frente a ARM: Aunque ambos son RISC, ARM es propietario (tienes que pagar para usar sus diseños). RISC-V democratiza el hardware: permite que universidades (como nosotros) y startups creen sus propios procesadores personalizados en FPGAs sin pedir permiso ni pagar "peaje".
+
+Conclusión del contexto: En este trabajo, no solo comparamos tiempos de ejecución; comparamos el estándar propietario establecido (ARM en la PYNQ) contra el futuro abierto y flexible (RISC-V CVA6).
