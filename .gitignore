@@ -6,7 +6,6 @@
 *.bin
 *.hdf
 *.hwh
-*.xsa
 .Xil/
 .metadata/
 *.ip_user_files/
